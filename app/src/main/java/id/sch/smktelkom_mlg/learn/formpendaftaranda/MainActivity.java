@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     EditText etNama;
     EditText etPanggilan;
+    RadioButton rbLk, rbPr;
     Button Sm;
     TextView tvHasil;
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         etNama = (EditText) findViewById(R.id.editTextNama);
         etPanggilan = (EditText) findViewById(R.id.editTextPanggilan);
+        rbLk = (RadioButton) findViewById(R.id.radioButtonLk);
+        rbPr = (RadioButton) findViewById(R.id.radioButtonPr);
         Sm = (Button) findViewById(R.id.buttonSm);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
@@ -32,10 +36,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doClick() {
+        String hasil = null;
+
+        if (rbLk.isChecked()) {
+            hasil = rbLk.getText().toString();
+        } else if (rbPr.isChecked()) {
+            hasil = rbPr.getText().toString();
+        }
+
         if (isValid()) {
             String nama = etNama.getText().toString();
             String panggilan = etPanggilan.getText().toString();
-            tvHasil.setText("Nama Lengkap : \t" + nama + "\nNama Panggilan : \t" + panggilan);
+            tvHasil.setText("Nama Lengkap : \t" + nama +
+                    "\nNama Panggilan : \t" + panggilan +
+                    "\nJenis Kelamin : \t" + hasil);
         }
     }
 
