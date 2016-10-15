@@ -6,12 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     EditText etNama;
     EditText etPanggilan;
     RadioButton rbLk, rbPr;
+    Spinner spKelas;
     Button Sm;
     TextView tvHasil;
 
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         etPanggilan = (EditText) findViewById(R.id.editTextPanggilan);
         rbLk = (RadioButton) findViewById(R.id.radioButtonLk);
         rbPr = (RadioButton) findViewById(R.id.radioButtonPr);
+        spKelas = (Spinner) findViewById(R.id.spinnerKelas);
         Sm = (Button) findViewById(R.id.buttonSm);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
@@ -49,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
             String panggilan = etPanggilan.getText().toString();
             tvHasil.setText("Nama Lengkap : \t" + nama +
                     "\nNama Panggilan : \t" + panggilan +
-                    "\nJenis Kelamin : \t" + hasil);
+                    "\nJenis Kelamin : \t" + hasil + "" +
+                    "\nKelas : \t" + spKelas.getSelectedItem().toString());
         }
     }
 
